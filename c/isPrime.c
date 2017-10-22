@@ -17,14 +17,14 @@ int main(){
         get_numb_half = _numb_ / 2;
         while(get_numb_half > start){
                 if(_numb_ % start == 0){
-                        printf("%d is prime\n", _numb_);
+                        printf("%d is not prime\n", _numb_);
                         return 0;
                 }else{
                         start++;
-                        printf("%d",start);
 
                 }
         }
+        printf("%d is prime\n",_numb_);
         return 0;
 
 }
