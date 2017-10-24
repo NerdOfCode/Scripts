@@ -1,4 +1,9 @@
 #!/bin/bash
+#Author: NerdOfCode
+#Purpose: To send mail from CLI
+#Tested on Ubuntu 17.04
+
+
 
 #for saving the mail temporarily
 random=$RANDOM
