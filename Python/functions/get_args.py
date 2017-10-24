@@ -5,7 +5,7 @@
 #Documentation: I recommend importing this file then calling function 
 #get_args into a variable then print the value of that variable
 
-import sys, os, re
+import sys, os
 
 #For filesake purposes
 
@@ -27,8 +27,6 @@ def get_args():
                 arguements.append(sys.argv[argu])
         if sys.argv[0]:
                 del arguements[0]
-
-        #Modify array below
 
         return arguements
 
