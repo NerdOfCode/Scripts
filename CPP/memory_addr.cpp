@@ -3,6 +3,16 @@
 #include <iostream>
 using namespace std;
 
+int* age = new int;
+
+
+inline int get_addr(){
+        cout << age << endl;
+        return 0;
+
+}
+
+
 int main(){
 
 
@@ -12,7 +22,9 @@ int main(){
 
         cin >> *age;
 
-        cout << age << endl;;
+        cout << "Get_Addr Status: " << get_addr() << endl;
+
+
 
         delete age;
 
