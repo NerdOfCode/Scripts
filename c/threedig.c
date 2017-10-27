@@ -3,9 +3,14 @@
 
 int main(){
 
-        #define null 0
-        #define MAX_BUFFER 256
-
+        //Define is deprecated
+        //#define null 0
+        //#define MAX_BUFFER 256
+        int null = 0;
+        int MAX_BUFFER = 256;
+        
+        
+        
         int three;
         int copy = 0;
         int result;
