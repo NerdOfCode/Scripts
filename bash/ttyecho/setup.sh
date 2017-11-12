@@ -1,6 +1,14 @@
 #!/bin/bash
 #Author: NerdOfCode
 
+###ATTENTION###
+clear
+echo "TTYECHO source code originates from http://www.humbug.in/2010/utility-to-send-commands-or-data-to-other-terminals-ttypts/"
+sleep 5
+clear
+###END###
+
+
 if [ $(which ttyecho) ]
 then
   echo "ttyecho is already installed. Would you like to reinstall? (y/n)"
