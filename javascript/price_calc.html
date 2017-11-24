@@ -1,0 +1,40 @@
+<!-- Author: NerdOfCode -->
+<html>
+<center>Enter weekly allowance &ensp;<input type="text" id="money"></input><br><br>
+Enter money saved: &ensp;&ensp;&ensp;&nbsp;&nbsp; <input type="text" id="saved"></input><br><br>
+Enter desired cost: &ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&nbsp;<input type="text" id="cost"></input><br><br>
+<button onclick="moneycalc();">Submit</button></center>
+
+
+</html>
+
+<script>
+function moneycalc(){
+	//Author: NerdOfCode
+	var allowance = document.getElementById("money").value;
+	var saved = document.getElementById("saved").value;
+	var cost = document.getElementById("cost").value;
+	//For number of weeks of allowance
+	var weeks = 0;
+	
+	if(cost <= saved){
+		document.write("You already have enough in your savings!!!");
+	
+	}else{
+		while(saved<cost){
+			weeks++;
+			saved=saved + allowance;
+			
+		}
+		document.write("After " + weeks + " week, you'll have enough");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}
+</script>
