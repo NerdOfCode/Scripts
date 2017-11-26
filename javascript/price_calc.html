@@ -9,32 +9,26 @@ Enter desired cost: &ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&nbsp;<input type="text"
 </html>
 
 <script>
+
+//Author: NerdOfCode
+
 function moneycalc(){
-	//Author: NerdOfCode
 	var allowance = document.getElementById("money").value;
 	var saved = document.getElementById("saved").value;
 	var cost = document.getElementById("cost").value;
-	//For number of weeks of allowance
 	var weeks = 0;
+	//Cast total subsidaries to Number to interpret as numb and not str
+	var total = Number(saved) + Number(allowance);
 	
-	if(cost <= saved){
-		document.write("You already have enough in your savings!!!");
+	//Where the magic happens
+	if (total>=cost){alert("You already have enough!!!");}
+	if (!allowance){document.write("Error: Please enter an allowance<br>");}
+	if (!cost){document.write("Error: Please enter a cost<br>");}
+	//if (allowance>=cost){alert("You will have enough within the week");}
+	while (cost > total){weeks++;total = Number(allowance) + Number(total);}
+	alert("It will take about " + weeks + " weeks to earn " + total + " dollars");
 	
-	}else{
-		while(saved<cost){
-			weeks++;
-			saved=saved + allowance;
-			
-		}
-		document.write("After " + weeks + " week, you'll have enough");
+	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-}
+
 </script>
