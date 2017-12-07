@@ -8,14 +8,14 @@
 #Change values below
 
 email="admin@nerdofcode.com"
-low_memory="100" #In KB
+low_memory="10000" #In KB
 
 
 #############################
 
 #Requirement checking below
 
-if [ -z /proc/meminfo ]
+if [ ! -f /proc/meminfo ]
 then
         echo "Sorry but your system is not supported..."
         exit 1
@@ -28,8 +28,11 @@ then
         exit 1
 fi
 
-if [ -z /var/log/memory_alert.log ]
+if [ -f /var/log/memory_alert.log ]
 then
+        echo "Welcome back!!!"
+else
+
         echo "Welcome to memory alert!!!"
         touch /var/log/memory_alert.log
 fi
@@ -39,9 +42,10 @@ fi
 #Magic happens below
 
 free_mem=$(sudo cat /proc/meminfo | grep MemFree: | tr 'MemFree:' ' '  | tr 'kB' ' '  | sed 's/ //g' )
-if [ $free_mem -lt $low_memory  ]
+if [ $free_mem -lt $low_memory ]
 then
         echo "Low memory!!! Free memory $free_memkB" | mail -s "Low Memory" $email
+        echo "Email sent to $email at $(date)" > /var/log/memory_alert.log
 fi
 
 
