@@ -58,4 +58,4 @@ echo "Pending Charges: $pending_charges" | tr -d \"
 echo "Last Payment Date: $last_pay_date" | tr -d \"
 
 echo "Last Payment Ammount: $last_pay_ammount" | tr -d \"
-nerdofcode@nerdofcode:~/Programming/Vultr$ 
+
