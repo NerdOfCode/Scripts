@@ -1,26 +1,32 @@
-//Author: NerdOfCode
-//Notes: A simple program that determines prime numbers for as long as the program is running
-
 #include <stdio.h>
+
+
 
 int main(){
 
-        int cur=2;
-        int find=2;
+        int start_numb=2;
+        int start_div=2;
+        int status;
+
+
 
         while(1==1){
-                if(cur % find == 0){
-                        //printf("%d is not prime",cur);
-                        cur++;
-                }else if(cur % find != 0 && cur>find){
-                        printf("%d is prime\n",cur);
-                        cur++;
-                }else{
-                        find++;
-                }
+                int shorten = start_numb / 2;
+                if(start_numb % start_div != 0 && start_div <= shorten){
+                        //printf("Number is not prime: %d", start_numb);
+                        start_div++;
+                }else if(start_div == shorten + 1){
 
+                        printf("Found a prime Number: %d\n", start_numb);
+                        start_div = 2;
+                        start_numb++;
+                }else{
+                        start_numb++;
+                        start_div = 2;
+                }
         }
 
 
 
+        return 0;
 }
