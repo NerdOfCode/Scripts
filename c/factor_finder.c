@@ -1,3 +1,7 @@
+#include <stdio.h>
+
+
+
 int check_factors(int num1, int num2, int fin){
         while(num1 * num2 != fin){
                 num1++;
