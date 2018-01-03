@@ -1,18 +1,9 @@
 #!/bin/bash
 
-
 #Change variables below to your likings....
 
 #For curl, hides download progress bar
 silent="--silent"
-
-
-
-if [ ! $(which nslookup) ]
-then
-        echo "Please install nslookup..."
-        exit 1 
-fi
 
 if [ ! $(which curl) ]
 then
@@ -26,6 +17,7 @@ then
 else
         ip=$1
 fi
+
 org=$(curl $silent https://ipapi.co/$ip/org/)
 city=$(curl $silent https://ipapi.co/$ip/city)
 country=$(curl $silent https://ipapi.co/$ip/country)
