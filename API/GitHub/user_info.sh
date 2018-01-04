@@ -19,7 +19,7 @@ then
 	shift
 fi
 
-
+#Cache check
 if [ $# != 1 ]
 then
 	curl --silent https://api.github.com/users/$user > ~/$dir/$user.txt
@@ -38,6 +38,9 @@ followers=$(echo $file | jq '.followers')
 following=$(echo $file | jq '.following')
 bio=$(echo $file | jq '.bio')
 public_repos=$(echo $file | jq '.public_repos')
+account_created=$(echo $file | jq '.created_at')
+account_created=$(echo $account_created | awk -F "T" '{print $1}' | tr -d \")
+
 
 echo "Id: $id"
 echo "Type: $type"
@@ -51,3 +54,4 @@ echo "Followers: $followers"
 echo "Following: $following"
 echo "Public Repos: $public_repos"
 echo "Bio: $bio"
+echo "Account created on: $account_created"
