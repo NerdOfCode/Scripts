@@ -10,7 +10,7 @@ git clone git@github.com:NerdOfCode/Scripts.git
 
 After running this command you will have full access to all my scripts!
 If you want to compile some of my scripts(Ex: C), I recommend using `gcc`...
+
 <ul>
-  <li>These scripts were built mostly on Ubuntu 17.04... Except for the one CS script  </li>
-    
+  <li>These scripts were built on glorius Linux platforms... Except for the one CS script...</li>    
 </ul>
