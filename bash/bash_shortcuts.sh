@@ -44,7 +44,7 @@ function remove_shortcuts(){
 		rm $storage
   		exit 0
 	fi
-	echo "The shortcuts arent instaled"
+	echo "The shortcuts arent installed"
 	exit 1;}
 function options(){
 	case $response in
