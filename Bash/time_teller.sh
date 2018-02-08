@@ -16,6 +16,7 @@ time=$(date | awk -F " " '{print $4}')
 
 read -p "Please enter sleep interval in seconds: " interval
 
+echo "PID: $PPID"
 
 while true
 do
@@ -24,4 +25,4 @@ espeak $time -s $rate >/dev/null 2>&1
 
 sleep $interval
 
-done
+done 
