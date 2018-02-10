@@ -3,3 +3,4 @@
 echo "Making all shell scripts executable"
 
 chmod +x *.sh
+chmod +x functions/*
