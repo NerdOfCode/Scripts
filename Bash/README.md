@@ -1,0 +1,3 @@
+### Setup
+
+To setup this bash directly quickly, all you have to do is simply run `bash executable.sh`... This will make all the shell scripts executable...
