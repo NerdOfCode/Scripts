@@ -1,0 +1,47 @@
+
+<!--
+NOTE: 
+
+As JavaScript is pretty inefficient and sucks up system resources
+
+I have set a limit on how many numbers it can test before it stops...
+
+Feel free to change this number but beware, I have warned you...
+
+ _   _              _  ___   __  ____          _      
+| \ | | ___ _ __ __| |/ _ \ / _|/ ___|___   __| | ___ 
+|  \| |/ _ \ '__/ _` | | | | |_| |   / _ \ / _` |/ _ \
+| |\  |  __/ | | (_| | |_| |  _| |__| (_) | (_| |  __/
+|_| \_|\___|_|  \__,_|\___/|_|  \____\___/ \__,_|\___|
+                                                      
+
+How to Use: To use this, all you have to do is look at the console log!!!
+
+To achieve this, on most modern web browsers all you have to do is click 
+
+Crtl + Shift + I and navigate over to Console!
+-->
+
+<p id="replace"></p>
+<script>
+	var number = 3;
+	var div = 2;
+	var count = 0;
+	var limit = 4545;
+
+	while(div < number && count < limit){
+		if(number % div == 0){
+			number += 1;
+			div = 2;
+		}else if(div < number/2){
+			div += 1;
+		}else{
+			console.log(number);
+			number += 1;
+		}
+	
+		count += 1;
+	}
+
+</script>
+
