@@ -11,6 +11,8 @@ package main
 import ("fmt"
         "crypto/md5"
 	      "crypto/sha1"
+        "crypto/sha256"
+        "crypto/sha512"
         "io")
 
 func md5_hash(u_input string) int{
@@ -35,22 +37,54 @@ func sha1_hash(u_input string) int{
   return 0
 }
 
+func sha256_hash(u_input string) int{
+  h := sha256.New()
+
+  io.WriteString(h, u_input)
+
+  fmt.Printf("%x\n", h.Sum(nil))
+
+  return 0
+
+}
+
+func sha512_hash(u_input string) int{
+  h := sha512.New()
+
+  io.WriteString(h, u_input)
+
+  fmt.Printf("%x\n", h.Sum(nil))
+
+  return 0
+}
+
+
 func main(){
 
   var u_input string
   var decision string
 
-  fmt.Print("Would you like to use (m)d5 or (s)ha-1: ")
+  //Basically print a menu
+  fmt.Println("Pick a hashing algorithm: ")
+  fmt.Println("(1)MD5")
+  fmt.Println("(2)SHA-1")
+  fmt.Println("(3)SHA-256")
+  fmt.Println("(4)SHA-512")
+
+  fmt.Print("Input: ")
   fmt.Scanln(&decision)
 
   fmt.Print("Enter string: ")
   fmt.Scanln(&u_input)
 
-  if decision == "m" {
-    md5_hash(u_input)
-  } else {
-    sha1_hash(decision)
+  switch decision{
+    case "1":
+		  md5_hash(u_input)
+    case "2":
+      sha1_hash(u_input)
+    case "3":
+      sha256_hash(u_input)
+    case "4":
+      sha512_hash(u_input)
   }
-
-
 }
