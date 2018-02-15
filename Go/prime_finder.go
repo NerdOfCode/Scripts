@@ -12,7 +12,7 @@ package main
 import "fmt"
 
 
-func prime_finder(debug bool) float32 {
+func prime_finder(debug bool) int {
 
 	var start int = 2
 	var div int = 2
