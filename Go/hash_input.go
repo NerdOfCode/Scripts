@@ -10,7 +10,7 @@ package main
 
 import ("fmt"
         "crypto/md5"
-	      "crypto/sha1"
+	"crypto/sha1"
         "crypto/sha256"
         "crypto/sha512"
         "io")
@@ -79,7 +79,7 @@ func main(){
 
   switch decision{
     case "1":
-		  md5_hash(u_input)
+      md5_hash(u_input)
     case "2":
       sha1_hash(u_input)
     case "3":
