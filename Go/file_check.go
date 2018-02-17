@@ -8,9 +8,9 @@
 package main
 
 import (
-				"fmt"
-				"io/ioutil"
-			 )
+	"fmt"
+	"io/ioutil"
+	 )
 
 
 func file_check(filename string) bool {
