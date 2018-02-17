@@ -49,6 +49,9 @@ func main(){
 			even()
 		case "o":
 			odd()
+		default:
+			fmt.Println("Unrecognized value...")
+			main()
 
 	}
 
