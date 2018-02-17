@@ -1,3 +1,10 @@
+/*
+	Purpose: Check whether a file exists or not...
+	Note: This program works with special phrases such as '../'
+	Updated: 2/16/18
+*/
+
+
 package main
 
 import (
