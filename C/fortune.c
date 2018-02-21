@@ -17,7 +17,7 @@ int main(){
 
         //printf("%d",random);
 
-        char* fortunes[12] = {"Do what's right!","Jolly", "Fantastic", "Possibly", "Definetly","Good Luck!", "What a joke...","Your future is bright.","Hold on tight","Just a few more days...","Keep moving","Not a chance"};
+        char *fortunes[12] = {"Do what's right!","Jolly", "Fantastic", "Possibly", "Definetly","Good Luck!", "What a joke...","Your future is bright.","Hold on tight","Just a few more days...","Keep moving","Not a chance"};
 
         printf("Your fortune: %s\n", fortunes[random]);
 
