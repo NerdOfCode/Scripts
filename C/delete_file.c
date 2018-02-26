@@ -20,7 +20,7 @@ int main(void){
 		printf("File deleted!\n");
 		return(1);
 	}else{
-		fprintf(stderr, "Error....");
+		fprintf(stderr,"Error...\n");
 		return(-1);
 	}
 
