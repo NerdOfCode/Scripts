@@ -51,6 +51,8 @@ def move():
 	else:
 		print("Unrecognized input...")
 
+print("This script is not working... I suggest using the one I built in C...")
+
 print("Only two player mode is currently available...")
 init()
 
