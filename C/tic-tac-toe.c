@@ -5,12 +5,8 @@
 */
 
 #include <stdio.h>
-#include <stdlib.h> //For exit()
+#include <stdlib.h>
 
-//Global Variables
-//Define the board
-
-//Constants
 #define S_BOARD 3
 //Basically set max checks for winner... Improves efficiency
 #define CHECK_COUNT 4
@@ -161,7 +157,7 @@ int check_winner( void ){
     while(checks <= CHECK_COUNT){
         //Current stored value in array
         char current_value = board[x][y];
-        printf("Current: %c\n",current_value);
+        //printf("Current: %c\n",current_value);
 
         //x | y
         //x | y
@@ -183,6 +179,30 @@ int check_winner( void ){
             winner = current_value;
             break;
         }
+
+	//Check opposite side of board
+	current_value = board[x+2][y+2];
+
+	//x x x
+	if(board[x+2][y+1] == current_value && board[x+2][y]){
+		winner = current_value;
+		break;
+	}
+
+	if(board[x][y+2] == current_value && board[x+1][y+2] == current_value){
+		winner = current_value;
+		break;
+	}
+	
+
+	//Check middle row and be done
+	current_value = board[x][y+1];
+
+	if(board[x+1][y+1] == current_value && board[x+2][y+1]){
+		winner = current_value;
+		break;
+	}
+
 
         checks++;
     }
