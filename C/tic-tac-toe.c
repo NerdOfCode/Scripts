@@ -193,7 +193,7 @@ int check_winner( void ){
 		winner = current_value;
 		break;
 	}
-	
+
 
 	//Check middle row and be done
 	current_value = board[x][y+1];
