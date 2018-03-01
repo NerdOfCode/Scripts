@@ -8,6 +8,6 @@ then
 	exit 1
 fi
 
-ip=$(dig +short myip.opendns.com)
+ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 echo "Your public IP is: $ip"
