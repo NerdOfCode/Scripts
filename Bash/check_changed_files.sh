@@ -17,12 +17,6 @@ check_required_tools(){
 		exit 1
 	fi
 
-  if [ ! $(which jq) ]
-  then
-    echo "Please install the 'jq' command... and re-run"
-    exit 1
-  fi
-
   return 0
 }
 
