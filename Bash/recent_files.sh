@@ -3,17 +3,17 @@
 #Purpose: Display the most recently appended or altered directory or file
 
 #Check to see if this was run yet.
-run=".run_rec_file_mod01.txt"
+run=".recent_files_scripts.txt"
 
 #How many to display at once
 #Please note that the default will not change, unless you change it on the line far below
 count=1
 
 
-if [ ! -f $run ]
+if [ ! -f ~/.$run ]
 then
         echo "Please run this script by using ./recent_file_mod.sh [number of files/directories to display[ex: 1]]"
-        touch $run
+        touch ~/.$run
         exit 1
 fi
 
