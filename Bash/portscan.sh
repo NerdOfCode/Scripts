@@ -1,11 +1,9 @@
-
-
 #!/bin/bash
 timeout_time=.5
 
-
 read -p "Enter hostname: " hostname
 read -p "Enter port/ports range(Ex: 1-443 or 443): " ports
+
 #Seperate input into two seperate variables
 high=$(echo $ports| cut -f2 -d"-")
 low=$(echo $ports | cut -f1 -d"-")
