@@ -2,52 +2,35 @@
 #Author: NerdOfCode
 #Purpose: To send mail from CLI
 #Tested on Ubuntu 17.04
-
-
+#Tested on: Antergos (Arch based)
 
 #for saving the mail temporarily
 random=$RANDOM
 
 #Mail related functionality
-mail=$(which mailutils)
+mail=$(which mailutils >/dev/null 2>&1)
 mail_status=$?
-check_ser=$(which postfix)
+check_ser=$(which postfix >/dev/null 2>&1)
 check_ser_status=$?
 temp_d=/tmp/
 mail_ext=.mail
 
-#Checking GUI related functions
-gui_check="$(startx >/dev/null 2>&1)"
-gui_status=$?
-
-
-echo -e "THIS PROGRAM IS OF NO WARRANTY!!! I AM NOT RESPONSIBLE FOR ANY 
-MISUSES OF IT. THIS SCRIPT IS SOLELY FOR EDUCATIONAL PURPOSES \n \n"
+echo -e "THIS PROGRAM IS OF NO WARRANTY!!! I AM NOT RESPONSIBLE FOR ANY MISUSES OF IT. THIS SCRIPT IS SOLELY FOR EDUCATIONAL PURPOSES \n \n"
 sleep 5
 clear
 
-
+#Check if user meets requirements
 if [ $mail_status != 0 ]
 then
 	echo "I am very sorry... But I require the mailutils package to sendmail"
-	echo "I suggest using apt or yum to install"
 	exit 1
 fi
 
 if [ $check_ser_status != 0 ]
 then
 	echo "I am very sorry... But I require the Postfix service"
-	echo "I suggest using apt or yum to install"
 	exit 1
 fi
-
-if [ $gui_status == 0 ]
-then
-	echo "WARNING!!! Running on home Computer is highly not recommended due to the increased chance of being mislead as spam"
-	sleep 2
-	exit 1
-fi
-
 
 read -p "Enter from address: " from 
 read -p "Enter receiving address: " receive
