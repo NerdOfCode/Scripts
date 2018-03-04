@@ -1,7 +1,17 @@
-#Crack MD5 hash from a table... This file will generate that
+#Crack MD5 hash from a password list
 #Note: Built using Python 3.x
 
-import hashlib, sys
+import hashlib, sys, os
+
+###CHANGE THIS###
+#This is the list that this program will use to bruteforce with...
+pass_list="example.txt"
+
+
+if not os.path.exists(pass_list):
+        print("Please provide a password list to use with bruteforce...")
+        sys.exit(-1)
+
 
 target = input("Enter target MD5 hash: ")
 #Starting string
@@ -23,7 +33,7 @@ while True:
         print("Attempts: ",total_interations)
         sys.exit(1)
     else:
-        with open('Crypto/password_list.txt') as file:
+        with open(pass_list) as file:
             lines = file.readlines()
 
             total_interations += 1
