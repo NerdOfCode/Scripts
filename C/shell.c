@@ -1,8 +1,9 @@
 /*
 
 Author: NerdOfCode
-Purpose: A work in progress shell built in C...
+Purpose: A work in progress shell built in C... Designed to be lightweight and fast...
 Updated: 3/8/18
+NOTE: THIS SCRIPT HAS BEEN MOVED TO A REPOSITORY UNDER NERDOFCODE'S GITHUB ACCOUNT
 
 
 */
@@ -10,6 +11,9 @@ Updated: 3/8/18
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <unistd.h> //Access
+#include <string.h>
 
 //Color Constants
 #define RED_TEXT "\033[1;31m"
@@ -30,6 +34,12 @@ int main ( void ){
 	while(1){
 		printf(YELLOW_TEXT "Command: " RESET, " " );
 		scanf("%s",input);
+
+		//TODO 
+		// - logging
+
+		//Convert input to lowercase for unitext
+		input[0] = tolower(input[0]);
 
 		//Check to see if user wants to exit before re-running loop
 		if(strcmp(input,"exit") == 0){
@@ -55,17 +65,33 @@ void clean_up(){
 	printf("Cleaning up...\n");
 	//Reset color values
 	printf("%s\n",RESET);
+	//TODO 
+	// - close any files used for logging
+
 
 }
 
 void help_commands(){
 	printf("Current usage:\n");
-	printf("Exit --> Exits this shell...");
+	printf("exit --> Exits this shell...\n");
 }
 
 
 int parseCommand(char input[64]){
 
-	return 0;
+	int command_status = 0;
+	char filename[66];
 
+	//Check if command exists relative to its filename
+
+	//Add file extension
+	strcat(filename,input);
+	strcat(filename,".c");
+
+	//if(access(filename, F_OK) == 0){
+		char version[] = "https://github.com/NerdOfCode/Restricted-Shell";
+		printf("Please use the updated version at: %s\n",version);
+	//}
+
+	return 0;
 }
