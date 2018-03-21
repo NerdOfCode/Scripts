@@ -4,7 +4,7 @@ bat_percent=$(acpi | awk -F ", " '{print $2}' | tr -d %)
 
 
 #When to start showing warnings
-low=40
+low=80
 alert="Low battery, $bat_percent% left..."
 
 notfiy_send_test=$(which notify-send)
@@ -25,8 +25,23 @@ fi
 #Test if cord is plugged in 
 plugged=$(acpi -a | awk -F ": " '{print $2}')
 
-if [ $bat_percent -lt $low ] && [ $plugged != 'on-line' ]
+if [ $plugged == 'on-line' ]
 then
-	notify-send "$alert"
+	echo "Your computer is connected to a power source..."
+	echo "Exiting..."
 	exit 0
 fi
+
+while :
+do
+
+	if [ $bat_percent -lt $low ]
+	then
+		notify-send "$alert"
+		sleep 15
+	else
+		#Check every fifteen seconds to use less resources...
+		sleep 15
+	fi
+
+done
