@@ -12,19 +12,22 @@
 int main(void){
 
   //Amount of integers in our array
-  #define INT_COUNT 6
+  #define INT_COUNT 7
 
+  //Safe start is to define a good starting integer to start comparing the list to...
+  #define SAFE_START -99999
+  
   //Safe number to exit the loop, without skipping anything important
   #define SAFE_EXIT 999
 
   //Define integers to sort
-  int unsorted_ints[INT_COUNT] = {5, 4, 27, 2, 1, 0};
+  int unsorted_ints[INT_COUNT] = {5, 4, 27, 2, 1, 0, -6};
 
   //Empty list for the sorted ints
-  int sorted_ints[INT_COUNT] = {0, 0, 0, 0, 0};
+  int sorted_ints[INT_COUNT] = {};
   
   //Compare unsorted int to the round count
-  int round_count = 0;
+  int round_count = SAFE_START;
 
   //Element to access
   int i = 0;
