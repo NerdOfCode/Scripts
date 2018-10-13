@@ -1,12 +1,12 @@
 --Represent selection sort in Lua
 
-unsorted_ints = {-30,5, 2, 3, 50, -240, 235, 80, -234, 454, 19,-1, 234}
-sorted_ints ={}
+local unsorted_ints = {-30,5, 2, 3, 50, -240, 235, 80, -234, 454, 19,-1, 234}
+local sorted_ints ={}
 
 --used to get the lowest value in array for comparing
 function get_low()
-	lowest_value = unsorted_ints[1]
-	remove_element = 0
+	local lowest_value = unsorted_ints[1]
+	local remove_element = 0
 	for n = 1, #unsorted_ints do
 		if not (unsorted_ints[n] > lowest_value) then
 			lowest_value = unsorted_ints[n]

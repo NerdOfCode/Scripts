@@ -1,12 +1,12 @@
 --The Fibonacci Sequence represented in Lua
 
-x = 1
-y = 1
+local x = 1
+local y = 1
 
-count = 0
+local count = 0
 
 io.write("Enter number of iterations: ")
-limit=tonumber(io.read())
+local limit=tonumber(io.read())
 
 while count < limit do
 	z = x + y
