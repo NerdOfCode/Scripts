@@ -1,20 +1,23 @@
 <?php
-#Author: NerdOfCode
-#Purpose: Calculate prime numbers using PHP
 
+//Author: NerdOfCode
+//Purpose: Calculate and output prime numbers using PHP
+//Note: Built using cli
 
-$start=2;
-$find=2;
+function isPrime($number){
+    for($factor = 2; $factor <= $number/2; $factor++){
+        if($number % $factor == 0){
+            return false;
+        }
+    }
+    return true;
+}
+
+$startingNumber = 2;
 
 while(true){
-        if($start % $find == 0){
-                $start+=1;
-        }else if($start % $find != 0 && $start>$find){
-                echo "$start is prime";
-                $start+=1;
-        }else{
-                $find+=1;
-        }
+    print(isPrime($startingNumber) ? "Prime: $startingNumber\n" : "");
+    $startingNumber += 1;
 }
 
 ?>

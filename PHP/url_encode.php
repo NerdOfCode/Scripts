@@ -1,9 +1,7 @@
-<!-- Quick example of urlencode function in php -->
+<?php //Quick-Example of urlencode() in PHP  ?>
 
 <form action="" method="post">
-
                 Search: <input type="text" name="input" class="input"></input>
-
 </form>
 
 
