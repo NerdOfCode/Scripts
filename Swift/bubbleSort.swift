@@ -1,42 +1,41 @@
-let unsortedIntegers = [5, 1, 4, 2, 8]                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                             
-class Sort {                                                                                                                                                                 
-    var pass = 0                                                                                                                                                             
-    var swaps = 0                                                                                                                                                            
-    var totalSwaps = 0                                                                                                                                                       
-    var sortedIntegers : [Int] = unsortedIntegers                                                                                                                            
-                                                                                                                                                                             
-                                                                                                                                                                             
-    func swap(Arr : inout [Int], x : Int, y : Int) {                                                                                                                         
-        let originalX = Arr[x]                                                                                                                                               
-        Arr[x] = Arr[y]                                                                                                                                                      
-        Arr[y] = originalX                                                                                                                                                   
-    }                                                                                                                                                                        
-                                                                                                                                                                             
-    /* Bubblesort implementation */                                                                                                                                          
-    func sort(Arr: [Int]) {                                                                                                                                                  
-        print("Pass: \(pass), Swaps: \(swaps)/\(totalSwaps), Array: \(sortedIntegers)")                                                                                      
-        pass += 1                                                                                                                                                            
-        for _ in 0 ..< sortedIntegers.count  {                                                                                                                               
-            for i in 0 ..< sortedIntegers.count - 1 {                                                                                                                        
-                if(sortedIntegers[i] > sortedIntegers[i + 1]) {                                                                                                              
-                    swap(Arr : &sortedIntegers, x : i, y : i + 1)                                                                                                            
-                    swaps += 1                                                                                                                                               
-                    totalSwaps += 1                                                                                                                                          
-                }                                                                                                                                                            
-            }                                                                                                                                                                
-            print("Pass: \(pass), Swaps: \(swaps)/\(totalSwaps), Array: \(sortedIntegers)")                                                                                  
-                                                                                                                                                                             
-            if(swaps == 0) {                                                                                                                                                 
-                /* The last swap will have 0 swaps, therefore anything after that would be extra */                                                                        
-                break                                                                                                                                                        
-            }                                                                                                                                                                
-                                                                                                                                                                             
-            swaps = 0                                                                                                                                                        
-            pass += 1                                                                                                                                                        
-        }                                                                                                                                                                    
-    }                                                                                                                                                                        
-}                                                                                                                                                                            
-                                                                                                                                                                             
-var sort = Sort()                                                                                                                                                            
-sort.sort(Arr: sort.sortedIntegers)  
+let unsortedIntegers = [5, 1, 4, 2, 8, 100]                                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                            
+class Sort {                                                                                                                                                                                                
+    var sortedIntegers : [Int] = unsortedIntegers                                                                                                                                                           
+                                                                                                                                                                                                            
+    func swap(Arr : inout [Int], xCoord : Int, yCoord : Int) {                                                                                                                                              
+        let originalX = Arr[xCoord]                                                                                                                                                                         
+        Arr[xCoord] = Arr[yCoord]                                                                                                                                                                           
+        Arr[yCoord] = originalX                                                                                                                                                                             
+    }                                                                                                                                                                                                       
+                                                                                                                                                                                                            
+    /* Bubblesort implementation */                                                                                                                                                                         
+    func bubbleSort(Arr: [Int]) {                                                                                                                                                                           
+        var pass = 0                                                                                                                                                                                        
+        var swaps = 0                                                                                                                                                                                       
+        var totalSwaps = 0                                                                                                                                                                                  
+                                                                                                                                                                                                            
+        print("Pass: \(pass), Swaps: \(swaps)/\(totalSwaps), Array: \(sortedIntegers)")                                                                                                                     
+                                                                                                                                                                                                            
+        repeat {                                                                                                                                                                                            
+            /* Reset swaps and increment pass in order to prepare for upcoming pass */                                                                                                                      
+            swaps = 0                                                                                                                                                                                       
+            pass += 1                                                                                                                                                                                       
+            for index in 0 ..< sortedIntegers.count - 1 {                                                                                                                                                   
+                if(sortedIntegers[index] > sortedIntegers[index + 1]) {                                                                                                                                     
+                    swap(Arr : &sortedIntegers, xCoord : index, yCoord : index + 1)                                                                                                                         
+                    swaps += 1                                                                                                                                                                              
+                    totalSwaps += 1                                                                                                                                                                         
+                }                                                                                                                                                                                           
+            }                                                                                                                                                                                               
+            print("Pass: \(pass), Swaps: \(swaps)/\(totalSwaps), Array: \(sortedIntegers)")                                                                                                                 
+        } while (swaps != 0)                                                                                                                                                                                
+    }                                                                                                                                                                                                       
+}                                                                                                                                                                                                           
+                                                                                                                                                                                                            
+/* Instantiate sort class */                                                                                                                                                                                
+var sort = Sort()                                                                                                                                                                                           
+                                                                                                                                                                                                            
+/* Invoke bubbleSort method */                                                                                                                                                                              
+sort.bubbleSort(Arr: sort.sortedIntegers)                                                                                                                                                                   
+                                                
