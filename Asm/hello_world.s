@@ -1,4 +1,4 @@
-	# Compile with GNU Assembler
+	# x86 -- Compile with GNU Assembler
 
 	.text
 	
