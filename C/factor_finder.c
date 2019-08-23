@@ -1,47 +1,89 @@
+// factor_finder.c
+// TODO: Fix a memory freeing issue that on rare occassion causes a program crash
+
 #include <stdio.h>
+#include <stdlib.h>
 
+typedef struct 
+{
+	long int numb;
+	int *factors;
+	size_t f_len;
+} Factor;
 
+// Return values: 1 => Argument(arg=argv[1]) passed, 0 => No Argument
+int parse_args(int argc, char *argv[]);
 
-int check_factors(int num1, int num2, int fin){
-        while(num1 * num2 != fin){
-                num1++;
+void print_array(int *array, size_t len); 
+void ff_wrapper(int n);
 
+void find_factors (Factor *factor) {
+	size_t factor_size = 0, cur_factor = 0;
+	factor->factors = (int *) calloc(factor_size, sizeof(int));
 
-                if(num1 > fin/2 && num1 <= fin && num2 <= fin){
-                        num1=0;
-                        num2++;
+	if (!factor->factors) {
+		return;
+	}
 
-                }
+	for (size_t x = 1; x <= factor->numb; x++) {
+		if (factor->numb % x == 0) {
+			factor->factors = (int *) realloc(factor->factors, ++factor_size);
+			factor->factors[cur_factor++] = x;
+		}
+	}
+	factor->f_len = cur_factor;
+}
 
+int main ( int argc, char *argv[] ) {
 
-        }if(num1 * num2 == fin){
-                printf("Factors are %d, and %d for the number: %d\n", num1, num2, fin);
+	if (parse_args(argc, argv)) {
+		return 0;
+	}
+	
+	return 0;
+}
 
-                //If num2 didn't change, send it in for another round
-                if(num2 == 2){
-                        num2++;
-                        check_factors(num1, num2, fin);
-                }
+int parse_args (int argc, char *argv[]) 
+{
+	int number = 0;
 
-                return 0;
-        }
+	if (argc == 1 || argc > 2) { 
+		printf("Enter number: ");
+		scanf("%d", &number);
+	} else {
+		number = atoi(argv[1]);
+	}
 
+	ff_wrapper(number);
+
+	return 1;
+}
+
+void ff_wrapper (int n)
+{
+	Factor factor;
+	Factor *p_factor = &factor;
+	
+	p_factor->numb = (long int) n;
+	
+	find_factors(p_factor);
+	print_array(p_factor->factors, p_factor->f_len);
+
+	if (p_factor->factors) {
+		free(p_factor->factors);	
+	}
+
+	return;
+}
+
+void print_array (int *array, size_t len)
+{
+	for (size_t i = 0; i < len; i++) 
+		printf("%i ", array[i]);
+
+	puts("");
+
+	return;
 }
 
 
-int main(){
-        //Receive the to-be calculated number
-        int final;
-        printf("Enter final number: ");
-        scanf("%d", &final);
-
-        //Set the startings ints
-        int numb1 = 2;
-        int numb2 = 2;
-
-        //Send the starting factors away
-        check_factors(numb1, numb2, final);
-
-        return 0;
-
-}

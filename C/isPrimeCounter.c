@@ -1,24 +1,21 @@
 #include <stdio.h>
+#include "includes/is_prime.h"
 
-int main(void){
+void find_prime_numbers (unsigned long int start)
+{
+	puts("PRIME NUMBERS");
+	
+	for (unsigned long int i = start;;i++) {
+		if (is_prime(i))
+			printf("%li\n",i);
+	}
 
-        int start_numb=2;
-        int start_div=2;
-        int status;
-        int shorten; 
+	return;
+}
 
-        while(1){
-                shorten = start_numb / 2;
-                if(start_numb % start_div != 0 && start_div <= shorten){
-                        start_div++;
-                }else if(start_div == shorten + 1){
-                        printf("Found a prime Number: %d\n", start_numb);
-                        start_div = 2;
-                        start_numb++;
-                }else{
-                        start_numb++;
-                        start_div = 2;
-                }
-        }
+int main (int argc, char *argv[])
+{
+	find_prime_numbers(0);
+
         return 0;
 }
