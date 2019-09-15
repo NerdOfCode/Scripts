@@ -1,14 +1,16 @@
-;; Check if a number is prime or not
-;; Written in: elisp
-;; Updated: 12/19/18
+(defun isPrime (n)
+  "Determine if n is a prime number or not"
+  (if (<= n 2) 
+    (return-from isPrime nil))
+  (loop for x from 2 to (floor (SQRT n)) 
+	do
+	(if (equal (mod n x) 0)
+	  (return-from isPrime nil))(return-from isPrime t)))
 
-(defun isPrime(numberToTest)
-  "Check if a given number is prime or not!"
-  (setq counter 2)
-  (while (< counter numberToTest)
-    (if (equal (% numberToTest counter) 0)
-	(message "not prime: %d" numberToTest)
-      (setq counter (+ counter 1))))
-  (message "prime: %d" numberToTest))
-
-(isPrime 3301)
+(defvar n)
+(setq n 1)
+(if (isPrime n)
+  (format t "Prime: ~d~%"
+	  n)
+  (format t "Not Prime: ~d~%"
+	  n))
