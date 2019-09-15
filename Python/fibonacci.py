@@ -8,8 +8,5 @@ def fib():
        x = y + z 
        y = x + z
        z = x + y 
-
-       if z > 50:
-           exit()
         
 fib()
