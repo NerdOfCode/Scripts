@@ -1,35 +1,33 @@
 import Foundation
 
 /*
-
- Purpose: Display a bunch of prime numbers
- Note: If no "upperBound" limit is entered. The upperBound will be -> 999 
- Updated: 12/18/18
-
+Purpose: Display a bunch of prime numbers using a recursive method
+Note: If no "upperBound" limit is entered. The upperBound will be -> 999 
 */
 
-func isPrime(n : Int) -> Bool {
-    guard n > 4 else { fatalError("Error: isPrime(n : Int) --> n ! <= 4 ")  }
-    
-    for x in 2 ... n/2 {
-        if n % x == 0 {
-            return false
+// func primeList
+// Params:
+//   n => Starting nth digit
+//   upperBound => Ending nth digit
+
+func primeList(n: Int, upperBound: Int) {
+    guard n > 4 else { return primeList(n: n+1, upperBound: upperBound) }
+    guard n < upperBound else { return }
+
+    for i in 2 ... n/2 {
+        if n % i == 0 {
+            return primeList(n: n+1, upperBound: upperBound)
         }
     }
-    return true
+    print("Prime: ", n)
+    return primeList(n: n+1, upperBound: upperBound)
 }
 
 print("Output prime numbers until nth term...")
-print("Enter upper bound limit: ",terminator:"")
+print("Enter upper bound limit: ", terminator: "")
 
-let upperBound = (Int(readLine()!) ?? (999))
-
-if(upperBound <= 5){
-    precondition(upperBound > 4, "upperBound not > 4")
-}
-
-for numberToTest in 5 ... upperBound{
-    if isPrime(n : numberToTest){
-        print(numberToTest)
-    }
+if let upperBound = Int(readLine()!) {
+    primeList(n: 0, upperBound: upperBound)
+} else {
+    print("Unknown upperBound value")
 }

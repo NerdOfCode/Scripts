@@ -1,59 +1,42 @@
 /*
-	Purpose: Finds even or odd numbers depending on Input
-	Note: Uses common logic to find even/odd values
-	Updated: 2/16/18
+Purpose: Finds even or odd numbers depending on Input
 */
 
 package main
 
 import (
 	"fmt"
-	)
+)
 
-func even() {
-	var limit int
-
-	fmt.Print("Enter maximum limit: ")
-	fmt.Scanln(&limit)
-
-	for start_c := 1; limit > start_c; start_c++{
-		start_c++
-		fmt.Println(start_c)
+func even(limit int) {
+	for i := 2; limit >= i; i += 2 {
+		fmt.Println(i)
 	}
 }
 
-func odd(){
-	var limit int
-
-	fmt.Print("Enter maximum limit: ")
-	fmt.Scanln(&limit)
-
-	for start_c := 0; limit >= start_c; start_c++{
-		start_c++
-		fmt.Println(start_c)
+func odd(limit int) {
+	for i := 1; limit >= i; i += 2 {
+		fmt.Println(i)
 	}
-
-
 }
 
-
-func main(){
-
+func main() {
 	var decision string
+	var limit int
 
 	fmt.Print("Would you like to find (e)ven or (o)dd numbers: ")
 	fmt.Scanln(&decision)
 
-	switch decision{
-		case "e":
-			even()
-		case "o":
-			odd()
-		default:
-			fmt.Println("Unrecognized value...")
-			main()
+	fmt.Print("Enter maximum limit: ")
+	fmt.Scanln(&limit)
 
+	switch decision {
+	case "e":
+		even(limit)
+	case "o":
+		odd(limit)
+	default:
+		fmt.Println("Unrecognized value...")
+		main()
 	}
-
-
 }
